@@ -31,9 +31,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     );
   }
 
-  return new NextResponse(
-    "Action performed!"
-  );
+  return NextResponse.json({ message: 'Hello from the frame route' }, { status: 200 });
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
