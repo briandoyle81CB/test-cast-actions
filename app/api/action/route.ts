@@ -17,7 +17,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const time = now.toLocaleTimeString();
 
   // Format them as a string
-  const dateTime = `${date} ${time}`;
+  const dateTime = `${date} ${time} UTC`;
 
   return NextResponse.json({ message: dateTime }, { status: 200 });
 }
