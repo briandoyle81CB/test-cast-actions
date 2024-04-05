@@ -40,7 +40,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <div>
+        <a href="https://warpcast.com/~/add-cast-action?actionType=post&name=Current+Time&icon=clock&postUrl=https%3A%2F%2Ftest-cast-actions.vercel.app%2Fapi%2Faction">
+          Click here to install the Current Time action on Warpcast.
+        </a>
+      </div>
     </>
   );
 }
