@@ -11,27 +11,15 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse('Message not valid', { status: 500 });
   }
 
-  const text = message.input || '';
-  let state = {
-    page: 0,
-  };
-  try {
-    state = JSON.parse(decodeURIComponent(message.state?.serialized));
-  } catch (e) {
-    console.error(e);
-  }
+  // Get the current date and time
+  const now = new Date();
+  const date = now.toLocaleDateString();
+  const time = now.toLocaleTimeString();
 
-  /**
-   * Use this code to redirect to a different page
-   */
-  if (message?.button === 3) {
-    return NextResponse.redirect(
-      'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
-      { status: 302 },
-    );
-  }
+  // Format them as a string
+  const dateTime = `${date} ${time}`;
 
-  return NextResponse.json({ message: 'Hello from the frame route' }, { status: 200 });
+  return NextResponse.json({ message: dateTime }, { status: 200 });
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
